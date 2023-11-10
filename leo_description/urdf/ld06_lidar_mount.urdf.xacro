@@ -12,9 +12,6 @@
                 <geometry>
                     <mesh filename="package://leo_description/models/model_extensions/ld06_lidar_msm_assembly_coloured.dae"/>
                 </geometry>
-                <geometry>
-                    <cylinder length="0.2" radius="0.025"/>
-                </geometry>
             </visual>
         </link>
 

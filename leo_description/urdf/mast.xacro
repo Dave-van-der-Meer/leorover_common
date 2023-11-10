@@ -3,6 +3,7 @@
 
   <xacro:macro name="leo_mast" 
                params="default_mikrotik_antenna:=true
+                       d455_camera:=true
                        link_prefix:=''
                        joint_prefix:=''">
 
@@ -101,6 +102,20 @@
       <origin xyz="-0.03 0.03 0.03" rpy="0 0 ${-pi/4}"/>
       <parent link="${link_prefix}mast_link"/>
       <child link="${link_prefix}mikrotik_antenna_link"/>
+    </joint>
+  </xacro:if>
+
+  <xacro:if value="${d455_camera}">
+    <link name="${link_prefix}realsense_link"/>
+    <xacro:include filename="$(find realsense2_description)/urdf/_d455.urdf.xacro"/>
+    <xacro:sensor_d455 name="${link_prefix}realsense_camera" parent="${link_prefix}realsense_link">
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    </xacro:sensor_d455>
+
+    <joint name="${link_prefix}realsense_joint" type="fixed">
+      <origin xyz="0.0 0 0.0" rpy="0 0 0"/>
+      <parent link="${link_prefix}mast_camera_screw_frame"/>
+      <child link="${link_prefix}realsense_link"/>
     </joint>
   </xacro:if>
 
