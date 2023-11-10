@@ -5,7 +5,9 @@
   <xacro:arg name="mecanum_wheels" default="false"/>
   
   <xacro:include filename="$(find leo_description)/urdf/macros.xacro"/>
+  <xacro:include filename="$(find leo_description)/urdf/ld06_lidar_mount.urdf.xacro"/>
 
   <xacro:leo mecanum_wheels="$(arg mecanum_wheels)"/>
+  <xacro:ld06_lidar_module/>
 
 </robot>

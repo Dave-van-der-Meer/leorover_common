@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="ld06_lidar_module"
+                params="ld06_lidar:=true
+                        link_prefix:=''
+                        joint_prefix:=''">
+
+        <link name="${link_prefix}ld06_lidar_link">
+            <visual>
+                <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://leo_description/models/ld06_lidar_msm_assembly_coloured.dae"/>
+                </geometry>
+                <geometry>
+                    <cylinder length="0.2" radius="0.025"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <joint name="ld06_lidar_joint" type="fixed">
+            <parent link="${link_prefix}base_link"/>
+            <child link="${link_prefix}ld06_lidar_link"/>
+            <origin xyz="0.093 0.0 0.0" rpy="0 0 0"/>
+        </joint>
+
+        <link name="${link_prefix}ld06_lidar_optical_frame"/>
+
+        <joint name="ld06_lidar_optical_frame_joint" type="fixed">
+            <parent link="${link_prefix}ld06_lidar_link"/>
+            <child link="${link_prefix}ld06_lidar_optical_frame"/>
+            <origin xyz="0.0 0.0 0.055" rpy="0 0 0"/>
+        </joint>
+
+    </xacro:macro>
+</robot>
