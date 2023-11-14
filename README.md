@@ -16,8 +16,17 @@ For more information about the robot, visit [Robots/Leo Rover].
 [leo_teleop]: http://wiki.ros.org/leo_teleop
 [Robots/Leo Rover]: http://wiki.ros.org/Robots/Leo%20Rover
 
-## Notes
+## Copy right notes for components from third parties
 
+### Parts from Leo Rover
 The files `leorover_description/models/model_extensions/xavier_mount.dae` and `leo_description/models/model_extensions/long_camera_mast.dae` have been taken respectively derived from the CAD model from the Leo Rover. To get the CAD model, see [https://www.leorover.tech](https://www.leorover.tech/documentation/specification).
 
-The file `realsense_d455.dae` from has been taken from the CAD model repositories of the website of [Intel RealSense](https://dev.intelrealsense.com/docs/stereo-depth-camera-d4000
+
+### Parts from Intel RealSense
+The file `realsense_d455.dae` from has been taken from the CAD model repositories of the website of [Intel RealSense](https://dev.intelrealsense.com/docs/stereo-depth-camera-d400)
+
+### Parts for the battery mount
+The mount for the makita battery has been taken from [ThingyVerse](https://www.thingiverse.com/thing:1857196) with the following notes:
+
+- LICENSE.txt: This thing was created by Thingiverse user Henk_i3, and is licensed under Creative Commons - Attribution
+- README.txt: Makita Battery Model with mounting screws by Henk_i3 on Thingiverse: https://www.thingiverse.com/thing:1857196

@@ -8,9 +8,9 @@
   <!-- makita battery 3D printed mount -->
   <link name="${link_prefix}makita_battery_mount">
     <visual>
-    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/><!-- ${-pi/2} -->
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://leorover_description/models/model_extensions/makita_battery_mount.dae"/>
+        <mesh filename="package://leo_description/models/model_extensions/makita_battery_mount.dae"/>
       </geometry>
     </visual>
     <inertial>
@@ -43,7 +43,7 @@
     <visual>
     <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://leorover_description/models/model_extensions/makita_battery_adapter.dae"/>
+        <mesh filename="package://leo_description/models/model_extensions/makita_t_mount_M3.dae"/>
       </geometry>
     </visual>
     <inertial>
@@ -66,7 +66,7 @@
   </link>
 
   <joint name="${joint_prefix}makita_battery_adapter_joint" type="fixed">
-    <origin xyz="0.0 0.0 0.015" rpy="0 0 0"/>
+    <origin xyz="-0.01 0.0 0.015" rpy="0 0 0"/>
     <parent link="${link_prefix}makita_battery_mount"/>
     <child link="${link_prefix}makita_battery_adapter"/>
   </joint>
@@ -76,7 +76,7 @@
     <visual>
     <origin xyz="0.0 0.0 0.035" rpy="0 ${pi} 0"/>
       <geometry>
-        <mesh filename="package://leorover_description/models/model_extensions/makita_battery.dae"/>
+        <mesh filename="package://leo_description/models/model_extensions/makita_battery.dae"/>
       </geometry>
     </visual>
     <inertial>
@@ -99,7 +99,7 @@
   </link>
 
   <joint name="${joint_prefix}makita_battery_joint" type="fixed">
-    <origin xyz="-0.005 0.0 0.035" rpy="0 0 0"/>
+    <origin xyz="0.005 0.0 0.025" rpy="0 0 0"/>
     <parent link="${link_prefix}makita_battery_adapter"/>
     <child link="${link_prefix}makita_battery"/>
   </joint>
@@ -108,9 +108,9 @@
   <!-- entire xavier mount -->
   <link name="${link_prefix}xavier_mount">
     <visual>
-    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/><!-- ${-pi/2} -->
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://leorover_description/models/model_extensions/xavier_mount.dae"/>
+        <mesh filename="package://leo_description/models/model_extensions/xavier_mount.dae"/>
       </geometry>
     </visual>
     <inertial>
