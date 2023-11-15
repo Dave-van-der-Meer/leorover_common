@@ -83,7 +83,7 @@
       <origin xyz="0.0 0.0 0.0"/>
       <mass value="0.5"/>
       <inertia
-        ixx="0.00037083"
+        ixx="0.00037083"  
         ixy="0"
         iyy="0.00052083"
         ixz="0"
@@ -99,7 +99,7 @@
   </link>
 
   <joint name="${joint_prefix}makita_battery_joint" type="fixed">
-    <origin xyz="0.005 0.0 0.025" rpy="0 0 0"/>
+    <origin xyz=" 0.005 0.0 0.025" rpy="0 0 0"/>
     <parent link="${link_prefix}makita_battery_adapter"/>
     <child link="${link_prefix}makita_battery"/>
   </joint>
