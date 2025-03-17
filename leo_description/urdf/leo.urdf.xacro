@@ -6,14 +6,16 @@
   <xacro:arg name="d455_camera" default="true"/>
   
   <xacro:include filename="$(find leo_description)/urdf/macros.xacro"/>
-  <xacro:include filename="$(find leo_description)/urdf/mast.xacro"/>
-  <xacro:include filename="$(find leo_description)/urdf/ld06_lidar_mount.urdf.xacro"/>
-  <xacro:include filename="$(find leo_description)/urdf/xavier_mount.xacro"/>
+  <!-- <xacro:include filename="$(find leo_description)/urdf/mast.xacro"/> -->
+  <!-- <xacro:include filename="$(find leo_description)/urdf/ld06_lidar_mount.urdf.xacro"/> -->
+  <!-- <xacro:include filename="$(find leo_description)/urdf/xavier_mount.xacro"/> -->
+  <xacro:include filename="$(find leo_description)/urdf/leorover_backpack.xacro"/>
 
 
   <xacro:leo mecanum_wheels="$(arg mecanum_wheels)"/>
-  <xacro:ld06_lidar_module/>
-  <xacro:leo_mast/>
-  <xacro:xavier_mount/>
+  <!-- <xacro:ld06_lidar_module/> -->
+  <!-- <xacro:leo_mast/> -->
+  <!-- <xacro:xavier_mount/> -->
+  <xacro:leorover_backpack/>
 
 </robot>
