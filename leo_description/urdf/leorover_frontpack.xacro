@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="leorover_frontpack" 
+               params="zed2_camera:=false
+                        zed2_camera_model:=true
+                        optitrack_marker_link:=true
+                        livox_hap_model:=true
+                        link_prefix:=''
+                        joint_prefix:=''">
+ <link name="${link_prefix}frontpack_link">
+        <inertial>
+            <mass value="1.0"/>
+            <inertia
+            ixx="0.00905" ixy="0.0" ixz="0.0"
+            iyy="0.00545"  iyz="0.0"
+            izz="0.00850"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://leo_description/models/model_extensions/leorover_frontpack.dae"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.10"/>
+            <geometry>
+                <box size="0.14 0.18 0.20"/>
+            </geometry>
+        </collision>
+        <collision>
+            <origin xyz="0.04 0.0 0.265"/>
+            <geometry>
+                <box size="0.07 0.11 0.13"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="${joint_prefix}leorover_frontpack_joint" type="fixed">
+        <origin xyz="0.067 0.0 0.0" rpy="0 0 0"/>
+        <parent link="${link_prefix}base_link"/>
+        <child link="${link_prefix}frontpack_link"/>
+    </joint>
+
+    <!-- Placeholder for the camera screw at the camera mount position (25 degrees) not rotated. -->
+    <link name="${link_prefix}camera_mount_screw_link"/>
+
+    <joint name="${joint_prefix}camera_mount_screw_joint" type="fixed">
+        <origin xyz="0.044557 0.0 0.25876" rpy="0 0 0"/>
+        <parent link="${link_prefix}frontpack_link"/>
+        <child link="${link_prefix}camera_mount_screw_link"/>
+    </joint>
+
+    <xacro:if value="${zed2_camera}">
+    <!-- {name}_camera_link -->
+        <joint name="${joint_prefix}_camera_link_joint" type="fixed">
+            <origin xyz="0.0 0.0 0.0" rpy="0 0.4363 0"/>
+            <parent link="${link_prefix}camera_mount_screw_link"/>
+            <child link="${link_prefix}zed2_camera_link"/>
+        </joint>
+
+        <link name="${link_prefix}zed2_camera_link"/>
+
+    </xacro:if>
+
+    <xacro:if value="${zed2_camera_model}">
+    <!-- {name}_camera_link -->
+        <joint name="${joint_prefix}_camera_link_joint" type="fixed">
+            <origin xyz="0.0 0.0 0.0" rpy="0 0.4363 0"/>
+            <parent link="${link_prefix}camera_mount_screw_link"/>
+            <child link="${link_prefix}zed2_camera_link"/>
+        </joint>
+
+        <link name="${link_prefix}zed2_camera_link">
+        <inertial>
+            <mass value="0.3"/>
+            <inertia
+            ixx="0.0008325" ixy="0.0" ixz="0.0"
+            iyy="0.0000625"  iyz="0.0"
+            izz="0.00085"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://leo_description/models/model_extensions/zed2_camera.dae"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.015"/>
+            <geometry>
+                <box size="0.04 0.18 0.03"/>
+            </geometry>
+        </collision>
+    </link>
+
+    </xacro:if>
+
+    <xacro:if value="${optitrack_marker_link}">
+        <joint name="${joint_prefix}_optitrack_marker_joint" type="fixed">
+            <origin xyz="0.009 0.0 0.053" rpy="0 0.468 0"/>
+            <parent link="${link_prefix}camera_mount_screw_link"/>
+            <child link="${link_prefix}optitrack_marker_link:"/>
+        </joint>
+
+        <link name="${link_prefix}optitrack_marker_link:">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://leo_description/models/model_extensions/optitrack_marker.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    </xacro:if>
+
+        <xacro:if value="${livox_hap_model}">
+    <!-- {name}_camera_link -->
+        <joint name="${joint_prefix}_livox_hap_model_link_joint" type="fixed">
+            <origin xyz="0.009 0.0 0.1035" rpy="0 0 0"/>
+            <parent link="${link_prefix}frontpack_link"/>
+            <child link="${link_prefix}livox_hap_model_link"/>
+        </joint>
+
+        <link name="${link_prefix}livox_hap_model_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://leo_description/models/model_extensions/livox_hap_model.dae"/>
+            </geometry>
+        </visual>
+    </link>
+
+    </xacro:if>
+
+  </xacro:macro>
+</robot>
