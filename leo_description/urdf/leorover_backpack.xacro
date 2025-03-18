@@ -6,11 +6,11 @@
                        joint_prefix:=''">
  <link name="${link_prefix}backpack_link">
         <inertial>
-            <mass value="0.5"/>
+            <mass value="1.5"/>
             <inertia
-            ixx="0.002956" ixy="-0.000001489324" ixz="-0.000008103407"
-            iyy="0.02924"  iyz="0.00007112"
-            izz="0.02832"/>
+            ixx="0.00905" ixy="0.0" ixz="0.0"
+            iyy="0.00545"  iyz="0.0"
+            izz="0.00850"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -19,7 +19,7 @@
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0.0 0.0 0.06"/>
+            <origin xyz="0.0 0.0 0.08"/>
             <geometry>
                 <box size="0.14 0.22 0.155"/>
             </geometry>
